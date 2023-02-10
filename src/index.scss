@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@font-face {
+  font-family: 'Avenir Next';
+  src:url('./font/AvenirNextLTPro-Bold.otf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('./font/AvenirNextLTPro-Regular.otf');
+  font-weight: 400;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //  font-family: 'Work Sans', sans-serif;
+  // font-family: 'Avenir Next', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
