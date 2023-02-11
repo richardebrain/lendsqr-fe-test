@@ -19,6 +19,19 @@ import { ReactComponent as chart } from '@assets/chart.svg'
 import { ReactComponent as slider } from '@assets/slider.svg'
 import { ReactComponent as badge } from '@assets/badge-percent.svg'
 import { ReactComponent as clipboard } from '@assets/clipboard.svg'
+import { ReactComponent as activeUser } from '@assets/active-users.svg'
+import { ReactComponent as usersCard } from '@assets/user-card.svg'
+import { ReactComponent as usersLoan } from '@assets/user-with-loan.svg'
+import { ReactComponent as usersSave } from '@assets/user-save.svg'
+import { ReactComponent as Filter } from '@assets/filter.svg'
+import { ReactComponent as Colon } from '@assets/colon.svg'
+import { ReactComponent as left } from '@assets/left.svg'
+import { ReactComponent as right } from '@assets/right.svg'
+import {ReactComponent as Eyes} from '@assets/eyes.svg'
+import {ReactComponent as Blacklist} from '@assets/deleteFriend.svg'
+import {ReactComponent as Activate} from '@assets/activate-user.svg'
+
+
 
 
 
@@ -44,8 +57,19 @@ export {
     scroll as IconScroll,
     chart as IconChart,
     slider as IconSlider,
-    badge as IconBadge, 
-    clipboard as IconClipboard
+    badge as IconBadge,
+    clipboard as IconClipboard,
+    activeUser as IconActiveUser,
+    usersCard as IconUsersCard,
+    usersLoan as IconUsersLoan,
+    usersSave as IconUsersSave,
+    Filter as IconFilter,
+    Colon as IconColon,
+    right as IconRight,
+    left as IconLeft,
+    Eyes as IconEyes,
+    Blacklist as IconBlacklist,
+    Activate as IconActivate
 
 
 

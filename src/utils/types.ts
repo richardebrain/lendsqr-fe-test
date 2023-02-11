@@ -15,7 +15,7 @@ export type sideBarProps = {
 export type AlluserProps = {
     accountBalance: number
     accountNumber: number
-    createdAt: string
+    createdAt: Date | number | Date
     email: string
     lastActiveDate: string
     userName: string
@@ -54,3 +54,10 @@ export type AlluserProps = {
         twitter: string
     }
 }[]
+
+export type usersCardProps = {
+    title: string
+    count: string
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>
+    color: string
+}

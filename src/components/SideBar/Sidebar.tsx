@@ -1,6 +1,6 @@
 import React from 'react'
 import './sidebar.styles.scss'
-import { IconArrowDown, IconDashboard, IconOrganisation } from '../icons/svgs'
+import { IconArrowDown, IconDashboard, IconOrganisation } from '../icons/icon'
 import { sidebarRoutes } from '@/utils/constant'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'

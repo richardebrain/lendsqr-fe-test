@@ -1,0 +1,42 @@
+.paginate_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -10px 0 0 0;
+ 
+  .container_first {
+    color: rgba(84, 95, 125, 1);
+  }
+  .container_second {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 14px;
+    font-weight: normal;
+    width: 262px;
+    .paginate_btn {
+      background: rgba(33, 63, 125, 0.1);
+      border-radius: 4px;
+      height: 24px;
+      width: 24px;
+      border: none;
+      cursor: pointer;
+    }
+    .second_pageNumber {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #545f7d63;
+      font-size: 16px;
+      .activeNumber {
+        color: #545f7d;
+      }
+    }
+    .second_dots {
+      color: #545f7d;
+
+      opacity: 0.6;
+    }
+  }
+}

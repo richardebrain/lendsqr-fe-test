@@ -12,7 +12,7 @@ function App() {
         <Route path='/' element={<SignInPage />} />
         <Route element={<Layout />}>
           <Route path='/home' element={<Home />} />
-          <Route path='/users' element={<Dashboard />} />
+          <Route path='/users'  element={<Dashboard />} />
         </Route>
 
       </Routes>
