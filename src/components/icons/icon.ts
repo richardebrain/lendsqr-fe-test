@@ -27,9 +27,10 @@ import { ReactComponent as Filter } from '@assets/filter.svg'
 import { ReactComponent as Colon } from '@assets/colon.svg'
 import { ReactComponent as left } from '@assets/left.svg'
 import { ReactComponent as right } from '@assets/right.svg'
-import {ReactComponent as Eyes} from '@assets/eyes.svg'
-import {ReactComponent as Blacklist} from '@assets/deleteFriend.svg'
-import {ReactComponent as Activate} from '@assets/activate-user.svg'
+import { ReactComponent as Eyes } from '@assets/eyes.svg'
+import { ReactComponent as Blacklist } from '@assets/deleteFriend.svg'
+import { ReactComponent as Activate } from '@assets/activate-user.svg'
+import { forwardRef } from 'react'
 
 
 
@@ -64,13 +65,14 @@ export {
     usersLoan as IconUsersLoan,
     usersSave as IconUsersSave,
     Filter as IconFilter,
-    Colon as IconColon,
     right as IconRight,
     left as IconLeft,
     Eyes as IconEyes,
     Blacklist as IconBlacklist,
-    Activate as IconActivate
-
-
-
+    Activate as IconActivate,
+    Colon as IconColon
 }
+// const Icon = forwardRef((props, ref) => (
+//     <IconColon ref= { ref } { ...props } />
+// )
+// )

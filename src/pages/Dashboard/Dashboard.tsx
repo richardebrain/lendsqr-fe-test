@@ -1,19 +1,19 @@
 import { IconColon } from '@/components/icons/icon'
 import Paginate from '@/components/paginate/Paginate'
+import TableDashboard from '@/components/TableDashboard/TableDashboard'
 import UsersCard from '@/components/usersCard/usersCard'
-import { checkActive, formattedDate } from '@/hooks/dateHook'
-import { formatNumbers } from '@/hooks/phoneNumber'
+
 import { tableHeader, usersCard } from '@/utils/constant'
 import { AlluserProps } from '@/utils/types'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import './dashboard.styles.scss'
 
 const Dashboard = () => {
-  const [users, setUsers] = useState<AlluserProps>([])
+  const [users, setUsers] = useState<AlluserProps[]>([])
   const [perPage, setPerPage] = useState(9)
   const [currentPage, setCurrentPage] = useState(1)
   const totalPage = Math.ceil(users.length / perPage)
-  const [showOption, setShowOption] = useState(false)
+
   useEffect(() => {
     const fetchUsers = async () => {
       const res = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
@@ -69,37 +69,8 @@ const Dashboard = () => {
           </thead>
           <tbody className='table_body'>
             {
-              currentUsers.map(({ orgName, email, createdAt, profile: { phoneNumber }, userName, id, lastActiveDate }) => (
-                <tr key={id} className='row_data'>
-                  <td>
-                    {orgName.split('-')[0]}
-
-                  </td>
-                  <td>
-                    {userName}
-
-                  </td>
-                  <td>
-                    {email}
-
-                  </td>
-                  <td>
-                    {formatNumbers(phoneNumber)}
-
-                  </td>
-                  <td>
-                    {formattedDate(createdAt)}
-
-                  </td>
-                  <td>
-                    <div className='status'>
-                      <span className={`${checkActive(lastActiveDate) == 'Active' ? 'active' : 'inactive'} status_check`}>{checkActive(lastActiveDate)}</span>
-                      {<IconColon onClick={() => setShowOption(!showOption)} className='status_icon' key={id}/>}
-                    </div>
-
-
-                  </td>
-                </tr>
+              currentUsers.map((user) => (
+                <TableDashboard user={user} key={user.id}/>
               ))
             }
           </tbody>

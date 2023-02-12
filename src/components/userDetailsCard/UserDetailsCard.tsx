@@ -1,21 +1,25 @@
 import React from 'react'
 import './userDetailsCard.styles.scss'
-import { IconActivate,IconBlacklist,IconEyes } from '../icons/icon'
+import { IconActivate, IconBlacklist, IconEyes } from '../icons/icon'
+import { Link } from 'react-router-dom'
 
-const UserDetailsCard = () => {
+type props = {
+    id: string
+}
+const UserDetailsCard = ({ id }: props) => {
     return (
-        <div className='userDetails_container'>
-            <div>
-                <IconEyes/>
+        <div className={`userDetails_container`}>
+            <Link to={`/users/${id}`}>
+                <IconEyes />
                 <span>View Details</span>
-            </div>
+            </Link>
             <div>
-                <IconBlacklist/>
+                <IconBlacklist />
                 <span>Blacklist User</span>
             </div>
 
             <div>
-                <IconActivate/>
+                <IconActivate />
                 <span>Activate User</span>
             </div>
 

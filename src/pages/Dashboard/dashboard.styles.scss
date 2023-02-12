@@ -63,6 +63,10 @@
           color: rgba(33, 63, 125, 1);
           border-bottom: 1px solid rgba(33, 63, 125, 0.1);
           text-transform: capitalize;
+          .show_card{
+            position: relative;
+           
+        }
           td {
             // padding: 20px 4px 20px 0;
             height: 62px;

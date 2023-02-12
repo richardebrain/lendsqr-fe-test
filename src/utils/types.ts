@@ -53,7 +53,7 @@ export type AlluserProps = {
         instagram: string
         twitter: string
     }
-}[]
+}
 
 export type usersCardProps = {
     title: string

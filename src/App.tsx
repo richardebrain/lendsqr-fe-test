@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<SignInPage />} />
         <Route element={<Layout />}>
-          <Route path='/home' element={<Home />} />
+          <Route path='/users/:id' element={<Home />} />
           <Route path='/users'  element={<Dashboard />} />
         </Route>
 
