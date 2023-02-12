@@ -63,10 +63,9 @@
           color: rgba(33, 63, 125, 1);
           border-bottom: 1px solid rgba(33, 63, 125, 0.1);
           text-transform: capitalize;
-          .show_card{
+          .show_card {
             position: relative;
-           
-        }
+          }
           td {
             // padding: 20px 4px 20px 0;
             height: 62px;
@@ -91,11 +90,20 @@
                 background: rgba(57, 205, 98, 0.3);
                 border-radius: 100px;
               }
+              .pending{
+                color:rgba(233, 178, 0, 1);
+                background-color: rgba(233, 178, 0, 0.2);
+                border-radius: 100px;
+              }
+              .blacklist {
+                background: #e4033b13;
+                border-radius: 100px;
+                color: rgba(228, 3, 59, 1);
+              }
               .inactive {
                 background: rgba(84, 95, 125, 0.3);
                 border-radius: 100px;
                 color: rgba(84, 95, 125, 1);
-
               }
               .status_icon {
                 width: 10px;

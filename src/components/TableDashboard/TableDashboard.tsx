@@ -10,6 +10,9 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
     const handleToggle = () => {
         setShow(!show)
     }
+    const [blackList, setBlackList] = useState(false);
+    const [pending, setPending] = useState(false);
+    const [activate, setActivate] = useState(false);
 
     return (
         <tr key={id} className='row_data'>
@@ -35,7 +38,12 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
             </td>
             <td className='show_card'>
                 <div className='status'>
-                    <span className={`${checkActive(lastActiveDate) == 'Active' ? 'active' : 'inactive'} status_check`}>{checkActive(lastActiveDate)}</span>
+                    <span className={`${checkActive(lastActiveDate) == 'Active' || activate ? 'active' : blackList ? 'blacklist' : pending ? 'pending' : 'inactive'} status_check`}>
+                        {
+                            blackList ? 'Blacklisted' : pending ? 'Pending' : activate ? 'Active' :
+                                checkActive(lastActiveDate)
+                        }
+                    </span>
                     <div
                         onClick={() => handleToggle()}
                         className='status_icon'
@@ -48,7 +56,13 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
                 </div>
 
                 {
-                    show && <UserDetailsCard id={id}/>
+                    show && <UserDetailsCard
+                        id={id}
+                        setBlackList={setBlackList}
+                        blacklist={blackList}
+                        setActivate={setActivate}
+                        activate={activate}
+                    />
                 }
             </td>
         </tr>
