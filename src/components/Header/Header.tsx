@@ -12,7 +12,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='header_logo'>
-                <Link to='/' >
+                <Link to='/users' >
                     <IconLogo />
                 </Link>
                 <CustomSearch Icon={IconSearch} />

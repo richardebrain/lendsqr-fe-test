@@ -195,26 +195,27 @@ export const UserWrapper = ({ children }: Props) => {
         try {
             const response = await fetch(`https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}`);
             const data = await response.json();
-            const properData = data.map((item: AlluserProps) => {
-                return {
-                    ...item,
-                    status: {
-                        ...item.status,
-                        isBlackListed: false,
-                        isBlackListedPending: false,
-                        isActivatedPending: false,
-                        isActivated: checkActive(item.lastActiveDate),
+            const properData =  {
+                ...data,
+                status: {
+                    ...data.status,
+                    isBlackListed: false,
+                    isBlackListedPending: false,
+                    isActivatedPending: false,
+                    isActivated: checkActive(data.lastActiveDate),
 
-                    },
-                    profile: {
-                        ...item.profile,
-                        phoneNumber: formatNumbers(item.profile.phoneNumber)!
-                    },
-                    phoneNumber: formatNumbers(item.phoneNumber)!,
-                    lastActiveDate: formattedDate(item.lastActiveDate)!,
-                    createdAt: formattedDate(item.createdAt)!
+                },
+                profile: {
+                    ...data.profile,
+                    phoneNumber: formatNumbers(data.profile.phoneNumber)!
+                },
+                phoneNumber: formatNumbers(data.phoneNumber)!,
+                lastActiveDate: formattedDate(data.lastActiveDate)!,
+                createdAt: formattedDate(data.createdAt)!   
+
+               
                 }
-            })
+            
             setUser(properData);
             setLoadingId(false);
         } catch (error) {
@@ -236,8 +237,8 @@ export const UserWrapper = ({ children }: Props) => {
 
     }
     if(adminLogout){
-       setUser(null);
-       setUsers([]);
+    //    setUser(null);
+    //    setUsers([]);
 
     }
 

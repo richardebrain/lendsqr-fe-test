@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './home.styles.scss'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { IconArrowBack, IconUserProfile } from '@/components/icons/icon'
 import { AlluserProps } from '@/utils/types'
 import StarReview from '@/components/starReview/StarReview'
@@ -12,16 +12,23 @@ import { useUserContext } from '@/context/userContext'
 
 const Home = () => {
     const { id } = useParams<{ id: string }>()
-    const { ActiveView, setActiveView } = useAppContext()
-    const { getUser, user,loadingId ,setUser,setLoadingId,setBlackListUser,setIsActivated
+    const { ActiveView, setActiveView, isAdmin } = useAppContext()
+    const { getUser, user, loadingId, setUser, setLoadingId, setBlackListUser, setIsActivated
     } = useUserContext()
     const location = useLocation();
+    const navigate = useNavigate()
+console.log(user)
+    useEffect(() => {
+        if (!isAdmin) {
+            navigate('/')
+        }
+    }, [isAdmin])
 
     useEffect(() => {
         getUser(id!)
     }, [])
 
-//if location has changed setUser to null
+    //if location has changed setUser to null
     useEffect(() => {
         setUser(null)
         setLoadingId(true)
@@ -43,8 +50,8 @@ const Home = () => {
             <div className="home_container_child child_header">
                 <h3>User Details</h3>
                 <div>
-                    <CustomButton blacklist type='button' handleClick={()=>setBlackListUser(id!)}>BlackList User</CustomButton>
-                    <CustomButton activate type='button' handleClick={()=>setIsActivated(id!)}>Activate User</CustomButton>
+                    <CustomButton blacklist type='button' handleClick={() => setBlackListUser(id!)}>BlackList User</CustomButton>
+                    <CustomButton activate type='button' handleClick={() => setIsActivated(id!)}>Activate User</CustomButton>
                 </div>
 
             </div>

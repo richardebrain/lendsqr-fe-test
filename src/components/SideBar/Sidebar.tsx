@@ -61,10 +61,10 @@ const Sidebar = () => {
                         )
                     }
                     <div className='primary_user'>
-                        <Link className={`signout `} to='/' onClick={() => logout}>
+                        <button className={`signout`} onClick={() => logout()}>
                             <IconSignOut />
                             Log Out
-                        </Link>
+                        </button>
 
                         <p>v1.2.0</p>
                     </div>

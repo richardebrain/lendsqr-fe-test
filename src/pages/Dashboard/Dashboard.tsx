@@ -3,17 +3,26 @@ import { IconColon } from '@/components/icons/icon'
 import Paginate from '@/components/paginate/Paginate'
 import TableDashboard from '@/components/TableDashboard/TableDashboard'
 import UsersCard from '@/components/usersCard/usersCard'
+import { useAppContext } from '@/context/MainContext'
 import { useUserContext } from '@/context/userContext'
-import { filteredDate, filteredDate2, formattedDate, } from '@/hooks/dateHook'
-
+import { filteredDate, filteredDate2, } from '@/hooks/dateHook'
+import { useNavigate } from 'react-router-dom'
 import { tableHeader, usersCard } from '@/utils/constant'
-import { AlluserProps } from '@/utils/types'
 import { useEffect, useState } from 'react'
 import './dashboard.styles.scss'
+import TableHeader from '@/components/TableHeader/TableHeader'
 
 const Dashboard = () => {
   const [perPage] = useState(9)
-  const { users, getUsers, loading, filterForm, setFilterForm ,setFilterResult,filterResult} = useUserContext()
+  const navigate = useNavigate()
+  const { users, getUsers, loading, filterForm, setFilterForm, setFilterResult, filterResult } = useUserContext()
+  const { isAdmin } = useAppContext()
+
+  useEffect(() => {
+    if (!isAdmin) {
+      navigate('/')
+    }
+  }, [isAdmin])
   const [currentPage, setCurrentPage] = useState(1)
   const totalPage = Math.ceil(users.length / perPage);
 
@@ -23,7 +32,7 @@ const Dashboard = () => {
   const indexOfLastUser = currentPage * perPage;
   const indexOfFirstUser = indexOfLastUser - perPage;
   const currentUsers = sortByDate.slice(indexOfFirstUser, indexOfLastUser);
-  const [showFilter, setShowFilter] = useState(true)
+  const [showFilter, setShowFilter] = useState(false)
 
   const handleFilter = () => {
     if (filterForm.status.trim() === '' || filterForm.date === null || filterForm.username.trim() === '' || filterForm.email.trim() === '' || filterForm.phoneNumber.trim() === '' || filterForm.organisation.trim() === '') {
@@ -71,8 +80,6 @@ const Dashboard = () => {
           usersCard.map(card => (
             <UsersCard card={card} key={card.title} />
           ))
-
-
         }
       </div>
       {/* table */}
@@ -87,12 +94,8 @@ const Dashboard = () => {
             <tr className='head_row'>
               {
                 tableHeader.map(header => (
-                  <th key={header.title} className={`${header.title == 'UserName' || header.title == 'Organisation' ? 'same' : header.title == 'Email' ? 'email' : ''}`}>
-                    <div className='th_child'>
-
-                      {header.title.toUpperCase()} {<header.Icon className='icon' />}
-                    </div>
-                  </th>
+                  <TableHeader header={header} key={header.title} showFilter={showFilter} setShowFilter={setShowFilter}/>
+                 
                 ))
               }
 

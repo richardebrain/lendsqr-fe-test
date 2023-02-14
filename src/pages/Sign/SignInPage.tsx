@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '@/context/MainContext'
 
 const SignInPage = () => {
-    const { setAdminLogin, adminLogin, loading, setLoading } = useAppContext()
+    const { setAdminLogin, adminLogin, loading, setLoading ,setIsAdmin} = useAppContext()
     const [show, setShow] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,16 +20,13 @@ const SignInPage = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault()
 
-        if (adminLogin.email.trim() == '' && adminLogin.password.trim() === '') {
-            setErrors('Please fill all fields')
-            return
-
-        };
+        if (adminLogin.email.trim() === '' && adminLogin.password.trim() === '') return;
         setLoading(true)
         setTimeout(() => {
             navigate('/users')
             setLoading(false)
         }, 4000)
+        setIsAdmin(true)
     }
 
     return (

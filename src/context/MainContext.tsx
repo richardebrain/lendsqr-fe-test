@@ -10,6 +10,8 @@ export type MainContextType = {
     loading: boolean
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
     adminLogout: boolean
+    setIsAdmin: React.Dispatch<React.SetStateAction<boolean>>
+    isAdmin: boolean
 
 }
 type Props = {
@@ -27,9 +29,11 @@ export const AppWrapper = ({ children }: Props) => {
     })
     const [loading, setLoading] = useState(false);
     const[adminLogout, setAdminLogout] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const logout = () => {
         setAdminLogout(true)
+        setIsAdmin(false)
         setAdminLogin({
             email: '',
             password: ''
@@ -46,11 +50,12 @@ export const AppWrapper = ({ children }: Props) => {
             loading,
             setLoading,
             adminLogout,
+            setIsAdmin,
+            isAdmin
         }}>
             {children}
         </MainContext.Provider>
     )
-
 }
 
 export const useAppContext = () => {
