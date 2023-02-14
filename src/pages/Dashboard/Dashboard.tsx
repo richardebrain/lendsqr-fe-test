@@ -66,8 +66,7 @@ const Dashboard = () => {
     return <h1>Loading...</h1>
   }
 
-  console.log(filterForm.status, 'filterForm.status')
-  console.log(filterResult, 'filterResult')
+
   return (
     <div className='dashboard'>
       <h1 className='container_heading'>

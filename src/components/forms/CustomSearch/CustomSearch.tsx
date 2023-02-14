@@ -1,6 +1,5 @@
 import React from 'react'
 import './customSearch.styles.scss'
-
 type searchProps = {
     Icon: React.FC<React.SVGProps<SVGSVGElement>>
     label?: string
