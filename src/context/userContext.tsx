@@ -2,7 +2,6 @@ import { checkActive, formattedDate } from '@/hooks/dateHook';
 import { formatNumbers } from '@/hooks/phoneNumber';
 import { AlluserProps, FilterState } from '@/utils/types';
 import { createContext, useContext, useState } from 'react';
-import { useAppContext } from './MainContext';
 
 export type userContextType = {
     users: AlluserProps[],
@@ -32,7 +31,6 @@ type Props = {
 export const UserContext = createContext<userContextType>({} as userContextType);
 
 export const UserWrapper = ({ children }: Props) => {
-    const { adminLogout } = useAppContext()
     const [users, setUsers] = useState<AlluserProps[]>([]);
     const [loading, setLoading] = useState(true);
     const [loadingId, setLoadingId] = useState(true);
@@ -236,11 +234,7 @@ export const UserWrapper = ({ children }: Props) => {
 
 
     }
-    if(adminLogout){
-    //    setUser(null);
-    //    setUsers([]);
-
-    }
+ 
 
     return (
         <UserContext.Provider value={{

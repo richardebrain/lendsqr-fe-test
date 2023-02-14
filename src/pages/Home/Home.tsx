@@ -17,7 +17,6 @@ const Home = () => {
     } = useUserContext()
     const location = useLocation();
     const navigate = useNavigate()
-console.log(user)
     useEffect(() => {
         if (!isAdmin) {
             navigate('/')

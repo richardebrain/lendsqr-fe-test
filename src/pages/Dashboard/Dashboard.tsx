@@ -1,5 +1,4 @@
 import FilterUser from '@/components/FilterUser/FilterUser'
-import { IconColon } from '@/components/icons/icon'
 import Paginate from '@/components/paginate/Paginate'
 import TableDashboard from '@/components/TableDashboard/TableDashboard'
 import UsersCard from '@/components/usersCard/usersCard'
@@ -67,8 +66,7 @@ const Dashboard = () => {
     return <h1>Loading...</h1>
   }
 
-  console.log(filterForm.status, 'filterForm.status')
-  console.log(filterResult, 'filterResult')
+
   return (
     <div className='dashboard'>
       <h1 className='container_heading'>
