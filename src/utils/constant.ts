@@ -1,6 +1,11 @@
-import { sideBarProps } from "./types";
-import { IconBadge, IconBank, IconChart, IconClipboard, IconCoins, IconGuarantor, IconHandshake, IconKarma, IconLoan, IconLoanRequest, IconOrganisation, IconPiggy, IconScroll, IconServiceAccount, IconSettings, IconSlider, IconTransactions, IconUser, IconWhitelist } from '@/components/icons/svgs'
-
+import { sideBarProps, usersCardProps } from "./types";
+import { IconActiveUser, IconBadge, IconBank, IconChart, IconClipboard, IconCoins, IconFilter, IconGuarantor, IconHandshake, IconKarma, IconLoan, IconLoanRequest, IconOrganisation, IconPiggy, IconScroll, IconServiceAccount, IconSettings, IconSlider, IconTransactions, IconUser, IconUsersCard, IconUsersLoan, IconUsersSave, IconWhitelist } from '@/components/icons/icon'
+import UserSavings from "@/components/userInfo/userSavings/UserSavings";
+import UserLoan from "@/components/userInfo/userLoan/userLoan";
+import UserBankDetails from "@/components/userInfo/userBankDetails/UserBankDetails";
+import UserDocument from "@/components/userInfo/userDocuments/UserDocument";
+import GeneralDetails from "@/components/userInfo/GeneralDetails/GeneralDetails";
+import AppAndSystem from "@/components/userInfo/appAndSystem/AppAndSystem";
 export const sidebarRoutes: sideBarProps = [
     {
         title: 'Customer',
@@ -122,3 +127,75 @@ export const sidebarRoutes: sideBarProps = [
     }
 
 ]
+
+export const usersCard: usersCardProps[] = [
+    {
+        title: 'Users',
+        Icon: IconUsersCard,
+        count: '2,453',
+        color: 'rgba(223, 24, 255, 0.1)'
+    },
+    {
+        title: 'Active Users',
+        Icon: IconActiveUser,
+        count: '2,453',
+        color: 'rgba(87, 24, 255, 0.1)'
+    },
+    {
+        title: 'Users With Loans',
+        Icon: IconUsersLoan,
+        count: '12,453',
+        color: 'rgba(245, 95, 68, 0.1)'
+    },
+    {
+        title: 'Users With Savings',
+        Icon: IconUsersSave,
+        count: ' 102,453',
+        color: 'rgba(255, 51, 102, 0.1)'
+    }
+]
+
+export const tableHeader = [
+    {
+        title: 'Organisation',
+        Icon: IconFilter,
+
+    },
+    {
+        title: 'UserName',
+        Icon: IconFilter,
+
+    },
+    {
+        title: 'Email',
+        Icon: IconFilter,
+
+    },
+    {
+        title: 'Phone Number',
+        Icon: IconFilter,
+
+    },
+    {
+        title: 'Date Joined',
+        Icon: IconFilter,
+
+    },
+    {
+        title: 'Status',
+        Icon: IconFilter,
+
+    }
+
+]
+
+
+export const UserDetailsView = {
+    "General Details": GeneralDetails,
+    "Documents": UserDocument,
+    "Bank Details": UserBankDetails,
+    "Loan": UserLoan,
+    "Savings": UserSavings,
+    "App and System": AppAndSystem
+}
+export const USER_DETAILS_VIEW_ARRAY = Object.keys(UserDetailsView);

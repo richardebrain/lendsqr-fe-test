@@ -1,0 +1,42 @@
+.btn_container {
+  width: 170px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 8px;
+  background: #e5e5e51f;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: white;
+}
+.blacklist {
+  border-color: #e4033b;
+  color: #e4033b;
+}
+.active_btn {
+  border-color: #39cdcc;
+  color: #39cdcc;
+}
+
+.reset {
+  width: 98px;
+  border: 1px solid #545f7d;
+  border-radius: 8px;
+  text-transform: capitalize;
+  color: rgba(84, 95, 125, 1);
+}
+.filter {
+  width: 98px;
+  background: #39cdcc;
+  border: 1px solid #39cdcc;
+  border-radius: 8px;
+  text-transform: capitalize;
+
+  color: white;
+}

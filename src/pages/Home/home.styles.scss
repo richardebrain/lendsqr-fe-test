@@ -1,5 +1,157 @@
-.home-container{
-    font-size: 40px;
-    font-weight: 800;
-    font-family: 'Work sans ' , sans-serif;
+.home_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: "Work Sans", sans-serif;
+  .home_container_child {
+  }
+  .child_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: #213f7d;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    div {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+  .child_summary {
+    background: #ffffff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    width: 1037px;
+    height: 210px;
+    display: flex;
+    padding: 10px 30px 0 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    .summary_one {
+      padding:20px 0 0 0;
+      display: flex;
+      align-items: center;
+      .one_username {
+        // border-right: 1px solid rgba(33, 63, 125, 0.06);
+        height: fit-content;
+        border-right: 1px solid #545f7d2d;
+        display: flex;
+        padding: 0 50px 0 0;
+        align-items: center;
+        gap: 20px;
+        .username_img {
+          background: rgba(33, 63, 125, 0.16);
+          border-radius: 4px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .username_name {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .name_name {
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 26px;
+          color: #213f7d;
+        }
+        .name_acc {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+
+          color: #545f7d;
+        }
+      }
+      .one_usertier {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        gap: 15px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        border-right: 1px solid #545f7d2d;
+        padding:25px 40px;
+
+        color: #545f7d;
+        .star_parent {
+          display: flex;
+          gap: 10px;
+          .stars {
+            color: white;
+            background-color: #e9b300de;
+            font-size: 20px;
+          }
+        }
+      }
+      .one_account {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 40px;
+
+        gap: 10px;
+        .account_bal {
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 26px;
+          color: #213f7d;
+        }
+        .account_bvn {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+
+          color: #213f7d;
+        }
+      }
+    }
+    .summary_two {
+      display: flex;
+      justify-content: space-between;
+    }
+    .active_screen{
+      border-bottom: 2px solid #39CDCC; 
+       }
+       .two_screens{
+        padding: 5px 20px 10px 20px;
+        cursor: pointer;
+       }
+  }
+
+
+  .child_details {
+    background: #ffffff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    width: 1037px;
+    height: 910px;
+    padding:30px ;
+   
+
+  }
+  .child_link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: rgba(84, 95, 125, 1);
+    font-weight: 400;
+    font-size: 16px;
+  }
 }

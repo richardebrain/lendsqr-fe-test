@@ -22,6 +22,12 @@ export type AlluserProps = {
     orgName: string
     id: string
     phoneNumber: string
+    status: {
+        isBlackListed: boolean
+        isActivated: boolean
+        isBlackListedPending: boolean
+        isActivatedPending: boolean
+    }
     guarantor: {
         address: string
         firstName: string
@@ -36,7 +42,7 @@ export type AlluserProps = {
         loanRepayment: string
         officeEmail: string
         sector: string
-        monthlyIncome: []
+        monthlyIncome: ['', '']
     }
     profile: {
         firstName: string
@@ -48,9 +54,25 @@ export type AlluserProps = {
         bvn: string
         avatar: string
     }
-    social: {
+    socials: {
         facebook: string
         instagram: string
         twitter: string
     }
-}[]
+}
+
+export type usersCardProps = {
+    title: string
+    count: string
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>
+    color: string
+}
+
+export type FilterState = {
+    username: string
+    email: string
+    phoneNumber: string
+    date: Date | null
+    organisation: string
+    status: string
+}

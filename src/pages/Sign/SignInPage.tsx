@@ -4,27 +4,29 @@ import { ReactComponent as Logo } from '../../assets/logo.svg'
 import './signin.scss'
 import landingImage from '../../assets/sign-in-image.png'
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from '@/context/MainContext'
 
 const SignInPage = () => {
-    const [user, setUser] = useState({
-        email: '',
-        password: ''
-    })
+    const { setAdminLogin, adminLogin, loading, setLoading ,setIsAdmin} = useAppContext()
     const [show, setShow] = useState(false)
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-        setUser({ ...user, [name]: value })
+        setAdminLogin({ ...adminLogin, [name]: value })
     }
     const navigate = useNavigate()
-    const [errors, setErrors] = useState<string[]>([])
-    const handleSubmit = () => {
-        if (user.email.trim() === '' || user.password.trim() === ''){
-            setErrors(['Please fill all fields'])
-            return
+    const [errors, setErrors] = useState<string>('')
 
-        };
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
 
-        navigate('/users')
+        if (adminLogin.email.trim() === '' && adminLogin.password.trim() === '') return;
+        setLoading(true)
+        setTimeout(() => {
+            navigate('/users')
+            setLoading(false)
+        }, 4000)
+        setIsAdmin(true)
     }
 
     return (
@@ -40,7 +42,7 @@ const SignInPage = () => {
                     <p>Enter details to login.</p>
 
                 </div>
-                <form action="" className='form'>
+                <form className='form' onSubmit={(e) => e.preventDefault()}>
                     <div className={`input_container ${errors && 'error'}`}>
                         <input
                             type="email"
@@ -49,7 +51,7 @@ const SignInPage = () => {
                             placeholder='Email'
                             onChange={(e) => handleChange(e)}
                             required
-                            
+
                         />
                     </div>
                     <div className='input_container'>
@@ -73,7 +75,11 @@ const SignInPage = () => {
                         </span>
                     </div>
                     <Link to='/forgot-password' className='forgot_password'>FORGOT PASSWORD?</Link>
-                    <button type="submit" className='button' onClick={() => handleSubmit()}>LOG IN</button>
+                    <button type="button" className='button' onClick={handleSubmit}>
+                        {loading ? 'LOADING...' : 'LOG IN'
+
+                        }
+                    </button>
 
 
                 </form>

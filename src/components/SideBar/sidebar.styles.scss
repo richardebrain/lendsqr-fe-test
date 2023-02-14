@@ -68,5 +68,26 @@
         }
       }
     }
+    .primary_user {
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      border-top: 1px solid #21407d1d;
+      gap: 60px;
+      color: #213f7d;
+
+      .signout {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #213f7d;
+        background-color: white;
+        cursor: pointer;
+        border: none;
+      }
+    }
   }
 }

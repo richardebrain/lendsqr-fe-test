@@ -1,0 +1,53 @@
+.general_details_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  :last-child{
+    border-bottom: none !important;
+}
+
+  .general_details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border-bottom: 1px solid #21407d26;
+   
+    padding: 10px 0 30px 0;
+    h4 {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #213f7d;
+    }
+    .details_personal_info {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      .info_item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 15%;
+
+        .title_email {
+          width: 25% !important;
+        }
+        .item_data {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+
+          color: #545f7d;
+        }
+        .item_title {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+          text-transform: uppercase;
+          color: #545f7d;
+        }
+      }
+    }
+  }
+}
