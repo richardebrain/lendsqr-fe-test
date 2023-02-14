@@ -1,6 +1,11 @@
 import { sideBarProps, usersCardProps } from "./types";
 import { IconActiveUser, IconBadge, IconBank, IconChart, IconClipboard, IconCoins, IconFilter, IconGuarantor, IconHandshake, IconKarma, IconLoan, IconLoanRequest, IconOrganisation, IconPiggy, IconScroll, IconServiceAccount, IconSettings, IconSlider, IconTransactions, IconUser, IconUsersCard, IconUsersLoan, IconUsersSave, IconWhitelist } from '@/components/icons/icon'
-
+import UserSavings from "@/components/userInfo/userSavings/UserSavings";
+import UserLoan from "@/components/userInfo/userLoan/userLoan";
+import UserBankDetails from "@/components/userInfo/userBankDetails/UserBankDetails";
+import UserDocument from "@/components/userInfo/userDocuments/UserDocument";
+import GeneralDetails from "@/components/userInfo/GeneralDetails/GeneralDetails";
+import AppAndSystem from "@/components/userInfo/appAndSystem/AppAndSystem";
 export const sidebarRoutes: sideBarProps = [
     {
         title: 'Customer',
@@ -153,33 +158,44 @@ export const usersCard: usersCardProps[] = [
 export const tableHeader = [
     {
         title: 'Organisation',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     },
     {
         title: 'UserName',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     },
     {
         title: 'Email',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     },
     {
         title: 'Phone Number',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     },
     {
         title: 'Date Joined',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     },
     {
         title: 'Status',
-        Icon:IconFilter,
-        
+        Icon: IconFilter,
+
     }
 
 ]
+
+
+export const UserDetailsView = {
+    "General Details": GeneralDetails,
+    "Documents": UserDocument,
+    "Bank Details": UserBankDetails,
+    "Loan": UserLoan,
+    "Savings": UserSavings,
+    "App and System": AppAndSystem
+}
+export const USER_DETAILS_VIEW_ARRAY = Object.keys(UserDetailsView);

@@ -2,22 +2,20 @@ import React from 'react'
 import './userDetailsCard.styles.scss'
 import { IconActivate, IconBlacklist, IconEyes } from '../icons/icon'
 import { Link } from 'react-router-dom'
+import { useUserContext } from '@/context/userContext'
 
 type props = {
     id: string,
-    setBlackList: (value: boolean) => void
-    blacklist: boolean
-    activate: boolean
-    setActivate: (value: boolean) => void
+
 }
-const UserDetailsCard = ({ id, setBlackList, blacklist, setActivate, activate }: props) => {
-    const handleactivate = () => {
-        setActivate(true)
-        setBlackList(false)
+const UserDetailsCard = ({ id }: props) => {
+    const { setBlackListUser, setIsActivated } = useUserContext()
+
+    const handleActivate = (id: string) => {
+        setIsActivated(id)
     }
-    const handleBlacklist = () => {
-        setBlackList(true)
-        setActivate(false)
+    const handleBlacklist = (id: string) => {
+        setBlackListUser(id)
     }
     return (
         <div className={`userDetails_container`}>
@@ -25,15 +23,21 @@ const UserDetailsCard = ({ id, setBlackList, blacklist, setActivate, activate }:
                 <IconEyes />
                 <span>View Details</span>
             </Link>
-            <div onClick={() => handleBlacklist()} className='option_btn'>
+            <button
+                onClick={() => handleBlacklist(id)}
+                className='option_btn'
+                >
                 <IconBlacklist />
                 <span>Blacklist User</span>
-            </div>
+            </button>
 
-            <div className='option_btn' onClick={() => handleactivate()}>
+            <button
+             className='option_btn' 
+             onClick={() => handleActivate(id)}
+             >
                 <IconActivate />
                 <span>Activate User</span>
-            </div>
+            </button>
 
 
         </div>

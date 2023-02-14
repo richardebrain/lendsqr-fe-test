@@ -18,17 +18,21 @@
     border: 1px solid rgba(33, 63, 125, 0.06);
     border-radius: 4px;
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-    height: 640px;
     width: 100%;
-    padding: 40px 20px;
+    padding: 30px 20px;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: 680px;
+
+  
     .card_table {
       width: 100%;
       border-collapse: collapse;
       border-spacing: 50px !important;
       .table_head {
         width: 100%;
+        position: relative;
         .head_row {
           font-size: 14px;
           font-weight: 500;
@@ -73,12 +77,12 @@
             color: #545f7d;
             font-family: "Work Sans", sans-serif;
             font-weight: 400;
-            width: fit-content;
             .status {
               display: flex;
               align-items: center;
               justify-content: space-between;
               gap: 2px;
+              width: 125.22px !important;
               .status_check {
                 font-weight: 400;
                 height: 30px;

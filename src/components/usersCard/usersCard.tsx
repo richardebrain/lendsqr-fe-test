@@ -9,9 +9,7 @@ const UsersCard = ({ card: { Icon, title, count,color } }: { card: usersCardProp
                 backgroundColor: color
             }}>
 
-            {<Icon style={{
-                fill: 'white'
-            }}/>}
+            {<Icon />}
             </div>
             <h5>{title}</h5>
             <p>{count}</p>

@@ -1,5 +1,5 @@
-export const formatNumbers = (number:string) => {
-
+export const formatNumbers = (number:string ) => {
+        if(!number) return null;
         // Remove any non-numeric characters and the extension, if present
         const cleanedNumber = "+234" + number.replace(/\D/g, '').split('X')[0];
         // Randomly assign an operator prefix

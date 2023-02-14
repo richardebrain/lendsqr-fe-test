@@ -1,0 +1,34 @@
+.select_container{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid rgba(33, 64, 125, 0.237);
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+    .select{
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        color: rgba(84, 95, 125, 1);
+        font-weight: 500;
+        cursor: pointer;
+        option{
+            font-size: 14px;
+            color: rgba(84, 95, 125, 1);
+            font-weight: 500;
+        }
+    }
+    .icon{
+        position: absolute;
+        right: 10px;
+    }
+}

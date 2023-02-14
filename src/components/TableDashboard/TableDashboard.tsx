@@ -1,18 +1,14 @@
-import { formattedDate, checkActive } from '@/hooks/dateHook';
-import { formatNumbers } from '@/hooks/phoneNumber';
+
 import { AlluserProps } from '@/utils/types';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { IconColon } from '../icons/icon';
 import UserDetailsCard from '../userDetailsCard/UserDetailsCard';
 
-const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, createdAt, lastActiveDate, id, email } }: { user: AlluserProps }) => {
+const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, createdAt, lastActiveDate, id, email, status: { isBlackListed, isActivated, isActivatedPending, isBlackListedPending } } }: { user: AlluserProps }) => {
     const [show, setShow] = useState(false);
     const handleToggle = () => {
         setShow(!show)
     }
-    const [blackList, setBlackList] = useState(false);
-    const [pending, setPending] = useState(false);
-    const [activate, setActivate] = useState(false);
 
     return (
         <tr key={id} className='row_data'>
@@ -29,25 +25,25 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
 
             </td>
             <td>
-                {formatNumbers(phoneNumber)}
+                {phoneNumber}
 
             </td>
             <td>
-                {formattedDate(createdAt)}
+                {createdAt as string}
 
             </td>
             <td className='show_card'>
                 <div className='status'>
-                    <span className={`${checkActive(lastActiveDate) == 'Active' || activate ? 'active' : blackList ? 'blacklist' : pending ? 'pending' : 'inactive'} status_check`}>
+                    <span className={`${isActivated ? 'active' : isBlackListed ? 'blacklist' : isActivatedPending || isBlackListedPending ? 'pending' : 'inactive'} status_check`}>
                         {
-                            blackList ? 'Blacklisted' : pending ? 'Pending' : activate ? 'Active' :
-                                checkActive(lastActiveDate)
+                            isBlackListed ? 'Blacklisted' : isActivatedPending || isBlackListedPending ? 'Pending' : isActivated ? 'Active' : 'Inactive'
                         }
                     </span>
                     <div
                         onClick={() => handleToggle()}
                         className='status_icon'
                         key={id}
+
 
                     >
 
@@ -58,10 +54,7 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
                 {
                     show && <UserDetailsCard
                         id={id}
-                        setBlackList={setBlackList}
-                        blacklist={blackList}
-                        setActivate={setActivate}
-                        activate={activate}
+
                     />
                 }
             </td>

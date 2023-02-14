@@ -30,11 +30,16 @@ import { ReactComponent as right } from '@assets/right.svg'
 import { ReactComponent as Eyes } from '@assets/eyes.svg'
 import { ReactComponent as Blacklist } from '@assets/deleteFriend.svg'
 import { ReactComponent as Activate } from '@assets/activate-user.svg'
-import { forwardRef } from 'react'
-
-
-
-
+import {ReactComponent  as UserProfile} from '@assets/user-profile.svg'
+import {ReactComponent as ArrowBack} from '@assets/arrow-back.svg'
+import {ReactComponent as Star} from '@assets/star.svg'
+import {ReactComponent as filledStar} from '@assets/filled-star.svg'
+import {ReactComponent as Calendar} from '@assets/calendar.svg'
+import { ReactComponent as Bell } from '@assets/bell.svg'
+import { ReactComponent as Search } from '@assets/search.svg'
+import { ReactComponent as Logo } from '@assets/logo.svg'
+import {ReactComponent as Down} from '@assets/vector-down.svg'
+import {ReactComponent as signOut} from '@assets/sign-out.svg'
 
 
 
@@ -70,9 +75,16 @@ export {
     Eyes as IconEyes,
     Blacklist as IconBlacklist,
     Activate as IconActivate,
-    Colon as IconColon
+    Colon as IconColon,
+    UserProfile as IconUserProfile,
+    ArrowBack as IconArrowBack,
+    Star as IconStar,
+    filledStar as IconFilledStar,
+    Calendar as IconCalendar,
+    Bell as IconBell,
+    Search as IconSearch,
+    Logo as IconLogo,
+    Down as IconDown,
+    signOut as IconSignOut
+
 }
-// const Icon = forwardRef((props, ref) => (
-//     <IconColon ref= { ref } { ...props } />
-// )
-// )

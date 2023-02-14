@@ -1,28 +1,22 @@
+import FilterUser from '@/components/FilterUser/FilterUser'
 import { IconColon } from '@/components/icons/icon'
 import Paginate from '@/components/paginate/Paginate'
 import TableDashboard from '@/components/TableDashboard/TableDashboard'
 import UsersCard from '@/components/usersCard/usersCard'
+import { useUserContext } from '@/context/userContext'
+import { filteredDate, filteredDate2, formattedDate, } from '@/hooks/dateHook'
 
 import { tableHeader, usersCard } from '@/utils/constant'
 import { AlluserProps } from '@/utils/types'
-import  { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './dashboard.styles.scss'
 
 const Dashboard = () => {
-  const [users, setUsers] = useState<AlluserProps[]>([])
-  const [perPage, setPerPage] = useState(9)
+  const [perPage] = useState(9)
+  const { users, getUsers, loading, filterForm } = useUserContext()
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPage = Math.ceil(users.length / perPage)
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const res = await fetch('https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users')
-      const data = await res.json()
-      setUsers(data)
-    }
-    fetchUsers()
-  }, [])
-
+  const totalPage = Math.ceil(users.length / perPage);
+  const [filterResult, setFilterResult] = useState<AlluserProps[]>([])
 
   const sortByDate = users.sort((a, b) => (
     new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
@@ -30,8 +24,31 @@ const Dashboard = () => {
   const indexOfLastUser = currentPage * perPage;
   const indexOfFirstUser = indexOfLastUser - perPage;
   const currentUsers = sortByDate.slice(indexOfFirstUser, indexOfLastUser);
+  const [showFilter, setShowFilter] = useState(true)
+
+  const handleFilter = () => {
+
+    const findUser = users.find(({ userName, email, profile: { phoneNumber }, createdAt, orgName, status }) => (
+      userName.toLowerCase().includes(filterForm.username.toLowerCase()) && phoneNumber.includes(filterForm.phoneNumber) && email.toLowerCase().includes(filterForm.email.toLowerCase()) && orgName.toLowerCase().includes(filterForm.organisation.toLowerCase()) && filteredDate2(createdAt).includes(filteredDate(filterForm.date)) && Object.keys(status).includes(filterForm.status)
+
+    ))
+    if (findUser) {
+      setFilterResult([findUser])
+    }
+
+  }
 
 
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  if (loading && users.length === 0) {
+    return <h1>Loading...</h1>
+  }
+
+  console.log(filterForm.status, 'filterForm.status')
+  console.log(filterResult, 'filterResult')
   return (
     <div className='dashboard'>
       <h1 className='container_heading'>
@@ -51,6 +68,9 @@ const Dashboard = () => {
       <div className='card_table_container' style={{
         overflowX: 'auto'
       }}>
+        {
+          showFilter && <FilterUser handleFilter={handleFilter} />
+        }
         <table className='card_table'>
           <thead className='table_head'>
             <tr className='head_row'>
@@ -70,7 +90,7 @@ const Dashboard = () => {
           <tbody className='table_body'>
             {
               currentUsers.map((user) => (
-                <TableDashboard user={user} key={user.id}/>
+                <TableDashboard user={user} key={user.id} />
               ))
             }
           </tbody>
