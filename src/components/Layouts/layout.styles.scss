@@ -28,10 +28,31 @@
       background-color: white;
     }
     main {
-      padding: 80px;
+      padding:30px;
       @media screen and (max-width: 1440px) {
         padding: 80px 0 0 0;
       }
     }
+  }
+  @media screen and (max-width: 425px) {
+    .layout_content{
+      padding-bottom: 30px;
+      position: relative;
+      .content_aside{
+        width: 80%;
+        position: absolute;
+        z-index: 10000;
+        .show{
+          display: block;
+        }
+        .noshow{
+          display: none;
+        }
+      }
+      main{
+        padding:10px
+      }
+    }
+    
   }
 }

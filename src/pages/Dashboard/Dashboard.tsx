@@ -81,9 +81,7 @@ const Dashboard = () => {
         }
       </div>
       {/* table */}
-      <div className='card_table_container' style={{
-        overflowX: 'auto'
-      }}>
+      <div className='card_table_container'>
         {
           showFilter && <FilterUser handleFilter={handleFilter} />
         }

@@ -113,3 +113,32 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .sign_container {
+    .container_first {
+      display: none;
+    }
+    .container_second {
+      width: 100%;
+      padding: 0 30px;
+      .welcome {
+        h1 {
+          font-size: 40px;
+        }
+      }
+      .form {
+        .input_container {
+          width: 100%;
+          input {
+            width: 100%;
+          }
+        }
+        .button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+  

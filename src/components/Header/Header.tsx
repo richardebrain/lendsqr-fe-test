@@ -2,13 +2,14 @@ import React from 'react'
 import './header.styles.scss'
 import CustomSearch from '@/components/forms/CustomSearch/CustomSearch'
 import { Link } from 'react-router-dom'
-import { IconBell, IconDown, IconLogo, IconSearch } from '../icons/icon'
+import { IconBell, IconDown, IconLogo, IconMenu, IconMenuClose, IconSearch } from '../icons/icon'
 import ProfileImg from '@assets/user-profile.png'
 import { useAppContext } from '@/context/MainContext'
 
 
 const Header = () => {
-    const { adminLogin } = useAppContext()
+    const { adminLogin, isSidebarOpen, setIsSidebarOpen } = useAppContext()
+
     return (
         <div className='header'>
             <div className='header_logo'>
@@ -33,6 +34,18 @@ const Header = () => {
                 </div>
 
             </div>
+            {
+                <div className="mobile">
+                    {
+
+                        !isSidebarOpen ?
+                            <IconMenu className='icon_open' onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+                            :
+                            <IconMenuClose className='icon_close' onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+                    }
+                </div>
+            }
+
 
         </div>
     )
