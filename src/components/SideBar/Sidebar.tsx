@@ -60,16 +60,15 @@ const Sidebar = () => {
                         )
                         )
                     }
-                    {
-                        userIdPath && <div className='primary_user'>
-                            <Link className={`signout `} to='/' onClick={() => logout}>
-                                <IconSignOut />
-                                Log Out
-                            </Link>
+                    <div className='primary_user'>
+                        <Link className={`signout `} to='/' onClick={() => logout}>
+                            <IconSignOut />
+                            Log Out
+                        </Link>
 
-                            <p>v1.2.0</p>
-                        </div>
-                    }
+                        <p>v1.2.0</p>
+                    </div>
+
 
 
                 </div>

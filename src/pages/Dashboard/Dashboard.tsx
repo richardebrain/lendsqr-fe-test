@@ -13,10 +13,9 @@ import './dashboard.styles.scss'
 
 const Dashboard = () => {
   const [perPage] = useState(9)
-  const { users, getUsers, loading, filterForm } = useUserContext()
+  const { users, getUsers, loading, filterForm, setFilterForm ,setFilterResult,filterResult} = useUserContext()
   const [currentPage, setCurrentPage] = useState(1)
   const totalPage = Math.ceil(users.length / perPage);
-  const [filterResult, setFilterResult] = useState<AlluserProps[]>([])
 
   const sortByDate = users.sort((a, b) => (
     new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
@@ -27,13 +26,25 @@ const Dashboard = () => {
   const [showFilter, setShowFilter] = useState(true)
 
   const handleFilter = () => {
-
+    if (filterForm.status.trim() === '' || filterForm.date === null || filterForm.username.trim() === '' || filterForm.email.trim() === '' || filterForm.phoneNumber.trim() === '' || filterForm.organisation.trim() === '') {
+      alert('Please fill in the form')
+      return
+    }
     const findUser = users.find(({ userName, email, profile: { phoneNumber }, createdAt, orgName, status }) => (
-      userName.toLowerCase().includes(filterForm.username.toLowerCase()) && phoneNumber.includes(filterForm.phoneNumber) && email.toLowerCase().includes(filterForm.email.toLowerCase()) && orgName.toLowerCase().includes(filterForm.organisation.toLowerCase()) && filteredDate2(createdAt).includes(filteredDate(filterForm.date)) && Object.keys(status).includes(filterForm.status)
+      userName.toLowerCase().includes(filterForm.username.toLowerCase()) && phoneNumber.toLowerCase().includes(filterForm.phoneNumber.toLowerCase()) && email.toLowerCase().includes(filterForm.email.toLowerCase()) && orgName.toLowerCase().includes(filterForm.organisation.toLowerCase()) && filteredDate2(createdAt).includes(filteredDate(filterForm.date))
 
     ))
     if (findUser) {
       setFilterResult([findUser])
+      setFilterForm({
+        organisation: '',
+        status: '',
+        username: '',
+        email: '',
+        date: null,
+        phoneNumber: '',
+      })
+
     }
 
   }
@@ -89,9 +100,12 @@ const Dashboard = () => {
           </thead>
           <tbody className='table_body'>
             {
-              currentUsers.map((user) => (
+              filterResult.length > 0 ? filterResult.map((user) => (
                 <TableDashboard user={user} key={user.id} />
-              ))
+              )) :
+                currentUsers.map((user) => (
+                  <TableDashboard user={user} key={user.id} />
+                ))
             }
           </tbody>
         </table>

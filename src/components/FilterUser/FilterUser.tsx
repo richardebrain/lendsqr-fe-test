@@ -23,10 +23,7 @@ const FilterUser = ({ handleFilter }: Props) => {
   const handleChange = (e: any) => {
     handleChanges(e)
   }
-  const handleReset = () => {
-    handleResets()
 
-  }
   const returnOrg = () => { 
     const orgs = users.map((user) => {
       return user.orgName
@@ -56,7 +53,7 @@ const statusOptions = [
   }
 ]
   return (
-    <form className='filter_container' >
+    <form className='filter_container' onSubmit={(e)=>e.preventDefault()} >
       <div className="content">
         <CustomDropdown
           label={'Organisation'}
@@ -119,7 +116,7 @@ const statusOptions = [
 
       </div>
       <div className="content btns">
-        <CustomButton reset={true} type='reset' handleClick={handleReset}> Reset</CustomButton>
+        <CustomButton reset={true} type='button' handleClick={()=>handleResets()}> Reset</CustomButton>
         <CustomButton filter={true} type='button' handleClick={handleFilter}> Filter</CustomButton>
 
       </div>
