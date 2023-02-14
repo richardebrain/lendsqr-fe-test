@@ -1,5 +1,4 @@
 import FilterUser from '@/components/FilterUser/FilterUser'
-import { IconColon } from '@/components/icons/icon'
 import Paginate from '@/components/paginate/Paginate'
 import TableDashboard from '@/components/TableDashboard/TableDashboard'
 import UsersCard from '@/components/usersCard/usersCard'
