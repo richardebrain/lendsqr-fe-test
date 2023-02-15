@@ -40,7 +40,8 @@ import { ReactComponent as Search } from '@assets/search.svg'
 import { ReactComponent as Logo } from '@assets/logo.svg'
 import {ReactComponent as Down} from '@assets/vector-down.svg'
 import {ReactComponent as signOut} from '@assets/sign-out.svg'
-
+import {ReactComponent as menu} from '@assets/icon-menu.svg'
+import {ReactComponent as menuClose} from '@assets/icon-close.svg'
 
 
 export {
@@ -85,6 +86,8 @@ export {
     Search as IconSearch,
     Logo as IconLogo,
     Down as IconDown,
-    signOut as IconSignOut
+    signOut as IconSignOut,
+    menu as IconMenu,
+    menuClose as IconMenuClose,
 
 }

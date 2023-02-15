@@ -50,13 +50,16 @@ const TableDashboard = ({ user: { orgName, userName, profile: { phoneNumber }, c
                         {<IconColon />}
                     </div>
                 </div>
+                <div className='user_details_card'>
 
-                {
-                    show && <UserDetailsCard
-                        id={id}
+                    {
+                        show && <UserDetailsCard
+                            id={id}
 
-                    />
-                }
+                        />
+                    }
+                </div>
+
             </td>
         </tr>
     )

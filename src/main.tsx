@@ -8,7 +8,6 @@ import { UserWrapper } from './context/userContext'
 import ErrorPage from './pages/Error/ErrorPage'
 import Layout from './components/Layouts/Layout'
 import Home from './pages/Home/Home'
-import SignInPage from './pages/Sign/SignInPage'
 import Dashboard from './pages/Dashboard/Dashboard'
 
 const router = createBrowserRouter([

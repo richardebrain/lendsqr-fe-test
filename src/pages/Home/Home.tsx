@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect } from 'react'
 import './home.styles.scss'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { IconArrowBack, IconUserProfile } from '@/components/icons/icon'
-import { AlluserProps } from '@/utils/types'
+import { IconArrowBack,  IconUserProfile } from '@/components/icons/icon'
 import StarReview from '@/components/starReview/StarReview'
 import { UserDetailsView, USER_DETAILS_VIEW_ARRAY } from '@/utils/constant'
 import { useAppContext } from '@/context/MainContext'
@@ -100,7 +99,7 @@ const Home = () => {
             <div className="home_container_child child_details">
                 <Component userDetails={user} />
             </div>
-
+          
         </div>
     )
 }

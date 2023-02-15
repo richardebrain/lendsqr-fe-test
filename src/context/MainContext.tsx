@@ -12,6 +12,8 @@ export type MainContextType = {
     adminLogout: boolean
     setIsAdmin: React.Dispatch<React.SetStateAction<boolean>>
     isAdmin: boolean
+    isSidebarOpen: boolean
+    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
 
 }
 type Props = {
@@ -27,6 +29,7 @@ export const AppWrapper = ({ children }: Props) => {
         email: '',
         password: ''
     })
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [loading, setLoading] = useState(false);
     const[adminLogout, setAdminLogout] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
@@ -51,7 +54,9 @@ export const AppWrapper = ({ children }: Props) => {
             setLoading,
             adminLogout,
             setIsAdmin,
-            isAdmin
+            isAdmin,
+            isSidebarOpen,
+            setIsSidebarOpen
         }}>
             {children}
         </MainContext.Provider>
